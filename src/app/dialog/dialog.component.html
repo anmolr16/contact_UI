@@ -1,0 +1,20 @@
+<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}" [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong>Send Verification Code</strong>
+                <ng-content select=".app-modal-header"></ng-content>
+            </div>
+            <div class="modal-body">
+                Hi, Your OTP is :- {{otp}}
+                <ng-content select=".app-modal-body"></ng-content>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+                <a routerLink="/messages">
+                    <button type="button" class="btn btn-primary" (click)="hide(); send(contact,otp)">Send</button></a>
+                <ng-content select=".app-modal-footer"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

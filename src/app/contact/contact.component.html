@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <h3> List of contacts --></h3>
+        </div>
+        <div class="row">
+            <div *ngIf="!contacts.length">
+                <h4>No data found!!</h4>
+                <h4>Please create a contact</h4>
+            </div>
+            <div *ngIf="contacts.length">
+                <div class="card col-md-3" *ngFor="let contact of contacts" style="width:18rem;">
+                    <a routerLink='/contacts/detail/{{contact.name}}' class="card-link ">
+                        <div class="card-body">
+                            <h4 class="card-title ">{{contact.name}}</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <a routerLink='/contacts/create/'>
+                <button type="button" class="btn btn-primary" style="width: 15%; margin-top: 2rem; margin-left: 1rem;">Create Contact</button>
+            </a>
+        </div>
+    </div>
+</div>

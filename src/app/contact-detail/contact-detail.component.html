@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row" style="height: 100%; width: 100%; margin-left: 2rem; margin-top: 2rem;">
+        <div class="row">
+            <h3>Details of the contact --></h3>
+        </div>
+        <div class="row">
+            <form>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{contName}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Contact Number:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="fform-control-plaintext" id="inputPassword" value="{{contNumber}}">
+                    </div>
+                </div>
+                <button type="button" (click)="modal.show(); sendMessage(cont)">Send Message</button>
+                <app-dialog #modal [contact]="cont" [otp]="otp">
+                </app-dialog>
+            </form>
+        </div>
+    </div>
+</div>
