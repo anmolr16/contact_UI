@@ -16,7 +16,7 @@ export class ContactService {
 
     getContacts(): Observable<Contact[]> {
         return this.http
-        .get<Contact[]>('http://166.62.127.153/ws_contacts/contact/getContacts', httpOptions)
+        .get<Contact[]>('https://facerec.kpit.com/contact/contact/getContacts', httpOptions)
           .pipe(
                 retry(3),
                 tap(
@@ -28,7 +28,7 @@ export class ContactService {
 
     getContactByName(name: String): Observable<Contact> {
         return this.http
-        .get<Contact>('http://166.62.127.153/ws_contacts/contact/getContactByName?name=' + name, httpOptions)
+        .get<Contact>('https://facerec.kpit.com/contact/contact/getContactByName?name=' + name, httpOptions)
           .pipe(
                 retry(3),
                 tap(
@@ -40,7 +40,7 @@ export class ContactService {
 
     createContact(payload: Contact): Observable<Contact> {
         return this.http
-        .post<Contact>('http://166.62.127.153/ws_contacts/contact/createContact', payload, httpOptions)
+        .post<Contact>('https://facerec.kpit.com/contact/contact/createContact', payload, httpOptions)
         .pipe(
             retry(3),
             tap(

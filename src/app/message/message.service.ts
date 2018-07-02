@@ -16,7 +16,7 @@ export class MessageService {
 
     getMessages(): Observable<Message[]> {
         return this.http
-        .get<Message[]>('http://166.62.127.153/ws_contacts/message/getMessages', httpOptions)
+        .get<Message[]>('https://facerec.kpit.com/contact/message/getMessages', httpOptions)
           .pipe(
                 retry(3),
                 tap(
@@ -28,7 +28,7 @@ export class MessageService {
 
     setMessageDetail(payload: Message): Observable<Message> {
         return this.http
-        .post<Message>('http://166.62.127.153/ws_contacts/message/createMessage', payload, httpOptions)
+        .post<Message>('https://facerec.kpit.com/contact/message/createMessage', payload, httpOptions)
         .pipe(
             retry(3),
             tap(
